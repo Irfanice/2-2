@@ -2,10 +2,14 @@
 main {
     padding: calc(80px + 20px) 40px 80px; /* Increased left and right padding */
     font-family: 'Poppins', sans-serif; /* Modern font family */
-    background-color: #fafafa; /* Softer, neutral background color */
-    color: #444; /* Darker text color for better contrast */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-    border-radius: 8px; /* Rounded corners for the main content */
+    background: linear-gradient(135deg, rgba(255, 240, 230, 0.5), rgba(230, 240, 255, 0.5), rgba(255, 250, 240, 0.5), rgba(240, 255, 245, 0.5), rgba(245, 245, 255, 0.5)); /* Soft pastel gradient */
+    background-size: cover; /* Ensure gradient fills the area */
+    backdrop-filter: blur(12px); /* Soft glassy blur effect */
+    color: #333; /* Dark text for contrast */
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 12px; /* Rounded corners for a premium feel */
+    -webkit-backdrop-filter: blur(12px); /* Safari fix for backdrop-filter */
+    position: relative; /* Ensures backdrop-filter works */
 }
 
 /* Style for the search input */
@@ -163,7 +167,8 @@ main {
 
 /* Header Styles */
 header {
-    background: linear-gradient(to bottom, #f9f9f9, #e9e9e9); /* Subtle gradient */
+    background: url('../public/header.jpg') no-repeat center center/cover; /* Relative path to image */
+    backdrop-filter: blur(100px); /* Apply blur for glass effect */
     color: #1c1c1e; /* Apple-style dark text */
     padding: 20px 25px;
     text-align: center;
@@ -172,7 +177,6 @@ header {
     width: 100%;
     z-index: 1000;
     font-size: 24px; /* Larger font for better visibility */
-    backdrop-filter: blur(12px); /* Apply blur for glass effect */
     border-bottom: 1px solid #d1d1d6; /* Light gray border */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
     display: flex;
@@ -202,7 +206,9 @@ header {
 
 /* Footer Styles - Apple-inspired */
 footer {
-    background: linear-gradient(to top, #f9f9f9, #e9e9e9); /* Subtle gradient */
+    background: url('../public/header.jpg') no-repeat center center/cover; /* Relative path to image */
+    backdrop-filter: blur(100px); /* Apply blur for glass effect */
+   
     color: #1c1c1e; /* Apple-style dark text */
     text-align: center;
     padding: 18px 25px;
@@ -221,7 +227,7 @@ footer {
 .surah-item audio {
     width: 100%;
     border: none; /* Clean edges */
-    background-color: #6f6f6f; /* White background for a neutral appearance */
+    background-color: #dfdfdf; /* White background for a neutral appearance */
     border-radius: 10px; /* Rounded corners for softness */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
     padding: 8px 10px; /* Reduced inner spacing (optional, adjust as needed) */
@@ -329,7 +335,7 @@ header {
         margin-left: auto;
         font-size: 16px;
     }
-
+    
     .surahlist {
         position: absolute; /* Position the menu correctly */
         top: 70px; /* Adjust based on header height */
@@ -389,7 +395,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: #a4a4a4;
     padding: 8px 0; /* Slightly smaller padding */
     text-align: center;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Shadow for footer */

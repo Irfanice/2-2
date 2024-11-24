@@ -1,0 +1,339 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bokor', sans-serif;
+  background: linear-gradient(135deg, #ece9e6, #ffffff); /* Elegant light gradient */
+  color: #333;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.about-header {
+  background-color: rgba(255, 255, 255, 0.7); /* Glassy effect with transparency */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/*language toogle */
+.language-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0;
+  font-family: 'Arial', sans-serif;
+  margin-top: 5px;
+}
+
+/* Toggle Container for Centering */
+.toggle-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  padding: 10px 0; /* Space between header and toggle */
+  background-color: rgba(240, 240, 240, 0.9); /* Optional: distinguish section */
+  position: relative; /* Positioned relative to header */
+  z-index: 100; /* Ensure toggle appears correctly above background */
+  width: 100%;
+  margin: 100px 20px;
+}
+
+/* Styling for the Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin-top: 4px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Gray background when off */
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #3498db; /* Blue when checked */
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Optional Toggle Label Text */
+.toggle-text {
+  margin-left: 10px;
+  font-size: 24px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.about-header {
+  z-index: 1000; /* Higher than other content */
+}
+
+/* Main Content */
+.about-main {
+  margin-top: 800px; /* Adds more space between header and content */
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1100px;
+  margin: 80px auto; /* Center horizontally */
+}
+
+/* About Content */
+.about-content {
+  background-color: rgba(255, 255, 255, 0.85); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #555;
+}
+
+p:first-child {
+  font-weight: bold;
+}
+
+/* Profile Section */
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative; /* To ensure that the background image is applied properly */
+  background-image: url('../public/pro-bg.jpg'); /* Relative path to the image */
+  background-size: cover; /* Ensure the background image covers the section */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Keep the background fixed while scrolling */
+  padding: 40px; /* Add padding around the content */
+  border-radius: 12px; /* Optional rounded corners */
+  backdrop-filter: blur(100px); /* Apply blur for a glassy look */
+  -webkit-backdrop-filter: blur(100px); /* Safari fix for backdrop-filter */
+}
+
+.about-me::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Darken the background slightly for better text contrast */
+  border-radius: 12px;
+  z-index: -1; /* Ensure the overlay is behind the content */
+}
+
+
+
+.about-me img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.about-me p {
+  color: #fffefe;
+}
+
+.about-me h2 {
+  font-size: 22px;
+  color: #eff3f8;
+  margin-top: 10px;
+}
+
+/* Background Image Section */
+.background-image {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 50px 15px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.background-image h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  height: 75px; /* Specify a fixed height */
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .about-header {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .toggle-container {
+    padding: 15px;
+  }
+
+  .about-main {
+    padding: 20px;
+  }
+
+  .about-content {
+    padding: 15px;
+  }
+
+  .about-me img {
+    width: 120px;
+    height: 120px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .background-image {
+    padding: 40px 15px;
+  }
+
+  .background-image h2 {
+    font-size: 26px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-header {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .toggle-container {
+    padding: 10px;
+  }
+
+  .about-main {
+    padding: 10px;
+  }
+
+  .about-content {
+    padding: 10px;
+  }
+
+  .about-me img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .background-image {
+    padding: 30px 10px;
+  }
+
+  .background-image h2 {
+    font-size: 20px;
+  }
+
+  footer {
+    font-size: 10px;
+    padding: 10px;
+  }
+}
