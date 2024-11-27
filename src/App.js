@@ -1,31 +1,28 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SurahList from "./SurahList";  // Your home page or SurahList component
-import About from "./About"; // Import the About page component
-import Header from "./Header"; // Import Header component to pass setIsMenuOpen
+import React, { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import SurahList from './SurahList'; // Your home page component
+import About from './About'; // About page component
+import Header from './Header'; // Header component for navigation
+import Footer from './Footer'; // Footer component
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage menu state here
 
   return (
-    <Router>
+    <>
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <Routes>
-        {/* Route for SurahList/Home page */}
-        <Route 
-          path="/" 
-          element={<>
-            <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} /> {/* Header with menu */}
-            <SurahList isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          </>} 
+        <Route
+          path="/"
+          element={<SurahList isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />}
         />
-
-        {/* Route for the About page */}
-        <Route 
-          path="/about" 
-          element={<About isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} 
+        <Route
+          path="/about"
+          element={<About />}
         />
       </Routes>
-    </Router>
+      <Footer />
+    </>
   );
 };
 

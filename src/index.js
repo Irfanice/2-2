@@ -1,6 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css'; // Import global styles
+import App from './App'; // Main App component that contains routes
+import { BrowserRouter as Router } from 'react-router-dom'; // Routing library
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// Rendering the App inside the 'root' div in index.html
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root')
+);
