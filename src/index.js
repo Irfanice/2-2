@@ -1,16 +1,25 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import Routes and Route
-import "./styles.css";
-import SurahList from "./SurahList";
-import About from "./About";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SurahList from "./SurahList"; // Your home component
+import About from "./About"; // About component
+import Header from "./Header"; // Header component
+import Footer from "./Footer"; // Footer component
+import "./styles.css"; // General styles
 
-ReactDOM.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<SurahList />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
-  </Router>,
-  document.getElementById("root")
-);
+const App = () => {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<SurahList />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
+
+// Render the app
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);

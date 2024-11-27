@@ -1,29 +1,24 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SurahList from "./SurahList";  // Your home page or SurahList component
-import About from "./About"; // Import the About page component
-import Header from "./Header"; // Import Header component to pass setIsMenuOpen
+import SurahList from "./SurahList"; // Home page or SurahList component
+import About from "./About"; // About page component
+import Header from "./Header"; // Header component
 
 const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage menu state here
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for managing the menu
 
   return (
     <Router>
+      {/* Header is common across all pages */}
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
+      {/* Routes for different pages */}
       <Routes>
         {/* Route for SurahList/Home page */}
-        <Route 
-          path="/" 
-          element={<>
-            <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} /> {/* Header with menu */}
-            <SurahList isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          </>} 
-        />
+        <Route path="/" element={<SurahList />} />
 
         {/* Route for the About page */}
-        <Route 
-          path="/about" 
-          element={<About isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} 
-        />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
