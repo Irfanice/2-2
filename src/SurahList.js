@@ -3,6 +3,8 @@ import './styles.css';  // Make sure this is correctly imported
 import Header from './Header'; // Import the Header component
 import Footer from './Footer'; // Import the Footer component
 
+
+
 const SurahList = () => {
 const surahs = 
   [
