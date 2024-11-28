@@ -127,7 +127,7 @@ const [searchQuery, setSearchQuery] = useState("");
 const [isMenuOpen, setIsMenuOpen] = useState(false);
 const [audioLoadingState, setAudioLoadingState] = useState({});
 const [currentSurahIndex, setCurrentSurahIndex] = useState(0);
-const [hasUserInteracted, setHasUserInteracted] = useState(false);  // Track user interaction
+const [hasUserInteracted, setHasUserInteracted] = useState(false); // Track user interaction
 const audioRefs = useRef([]);
 
 const handleSearchChange = (e) => setSearchQuery(e.target.value);
@@ -148,7 +148,7 @@ const handleAudioError = (number) => {
 
 const handleAudioEnd = () => {
   const nextSurahIndex = (currentSurahIndex + 1) % surahList.length;
-  setCurrentSurahIndex(nextSurahIndex);  // Move to the next surah
+  setCurrentSurahIndex(nextSurahIndex); // Move to the next surah
 
   if (audioRefs.current[nextSurahIndex]) {
     audioRefs.current[nextSurahIndex].currentTime = 0; // Reset the time to 0
@@ -157,11 +157,17 @@ const handleAudioEnd = () => {
 };
 
 useEffect(() => {
-  const handleUserInteraction = () => {
-    setHasUserInteracted(true);
+  const handleUserInteraction = (event) => {
+    // Check if the interaction happened inside an audio control
+    if (
+      event.target.tagName === "AUDIO" || 
+      event.target.closest("audio")
+    ) {
+      setHasUserInteracted(true);
+    }
   };
 
-  // Listen for user clicks or key presses to enable autoplay
+  // Listen for user interactions within the page
   window.addEventListener('click', handleUserInteraction);
   window.addEventListener('keydown', handleUserInteraction);
 
@@ -173,8 +179,8 @@ useEffect(() => {
 
 useEffect(() => {
   if (hasUserInteracted && audioRefs.current[currentSurahIndex]) {
-    audioRefs.current[currentSurahIndex].currentTime = 0;  // Reset to 0:00
-    audioRefs.current[currentSurahIndex].play();  // Play the next audio
+    audioRefs.current[currentSurahIndex].currentTime = 0; // Reset to 0:00
+    audioRefs.current[currentSurahIndex].play(); // Play the next audio
   }
 }, [currentSurahIndex, hasUserInteracted]);
 
@@ -187,8 +193,8 @@ return (
     <header>
       <div className="header-container">
         <div className="left">
-        <h5>குர்ஆன்</h5>
-        <h5>தமிழில்</h5>
+          <h5>குர்ஆன்</h5>
+          <h5>தமிழில்</h5>
         </div>
         <div className="center">
           <input
@@ -206,9 +212,9 @@ return (
       {isMenuOpen && (
         <div className={`surahlist ${isMenuOpen ? 'show' : ''}`}>
           <ul>
-              <li><a href="/2-2">Home</a></li>  {/* Link to SurahList */}
-              <li><a href="./2-2/about">About</a></li>  {/* Link to About */}
-              <li><a href="#contact">Contact</a></li>
+            <li><a href="/2-2">Home</a></li>
+            <li><a href="./2-2/about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
       )}
@@ -237,8 +243,8 @@ return (
       </ul>
     </main>
 
-      {/* Footer */}
-      <Footer />
+    {/* Footer */}
+    <Footer />
   </div>
 );
 };
