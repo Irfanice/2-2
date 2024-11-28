@@ -8,7 +8,7 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage menu state here
 
   return (
-    <Router>
+    <Router basename="/2-2">
       <Routes>
         {/* Route for SurahList/Home page */}
         <Route 
