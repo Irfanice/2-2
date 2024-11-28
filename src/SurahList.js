@@ -205,8 +205,8 @@ return (
       {isMenuOpen && (
         <div className={`surahlist ${isMenuOpen ? 'show' : ''}`}>
           <ul>
-              <li><a href="/">Home</a></li>  {/* Link to SurahList */}
-              <li><a href="/about">About</a></li>  {/* Link to About */}
+              <li><a href="/2-2">Home</a></li>  {/* Link to SurahList */}
+              <li><a href="/2-2/about">About</a></li>  {/* Link to About */}
               <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
