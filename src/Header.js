@@ -6,7 +6,8 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
     <header>
       <div className="header-container">
         <div className="left">
-          <h1>குர்ஆன்</h1>
+        <h5>குர்ஆன்</h5>
+        <h5>தமிழில்</h5>
         </div>
         <div className="center">
           <input
