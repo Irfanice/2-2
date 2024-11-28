@@ -12,6 +12,13 @@ main {
     position: relative; /* Ensures backdrop-filter works */
 }
 
+/* Remove bullet points from Surah list in main content */
+main ul {
+    list-style-type: none; /* Removes the bullet points */
+    padding-left: 0; /* Removes any left padding */
+    margin: 0; /* Removes any margin */
+}
+
 /* Style for the search input */
 .search-input {
     width: 100%;
@@ -39,9 +46,9 @@ main {
     height: 100px;
     margin-bottom: 25px;
     padding: 0 18px;
-    font-size: 18px; /* Increased font size for better readability */
+    font-size: 15px; /* Increased font size for better readability */
     color: #333; /* Dark text for better contrast */
-    line-height: 1.8; /* More space between lines for clarity */
+    line-height: 1.7; /* More space between lines for clarity */
     background-color: #fff; /* White background for each Surah item */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -231,7 +238,7 @@ footer {
     border-radius: 10px; /* Rounded corners for softness */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
     padding: 8px 10px; /* Reduced inner spacing (optional, adjust as needed) */
-    margin-top: 8px; /* Reduced spacing above (adjust as needed) */
+    margin-top: 5px; /* Reduced spacing above (adjust as needed) */
     display: block; /* Full width */
     transition: box-shadow 0.2s ease, background-color 0.2s ease; /* Smooth interaction */
 }
@@ -349,16 +356,16 @@ header {
     }
 
     .surahlist li a {
-    display: block; /* Makes the whole area clickable */
-    text-decoration: none;
-    color: #2c3e50; /* Darker text for good contrast */
-    font-family: 'Poppins', sans-serif; /* Modern font */
-    font-size: 14px; /* Optimal size for readability */
-    padding: 10px 15px; /* Adequate padding for touch-friendly design */
-    border-radius: 8px; /* Rounded button-like links */
-    transition: background-color 0.3s, color 0.3s ease;
-    text-align: center;
-}
+        display: block; /* Makes the whole area clickable */
+        text-decoration: none;
+        color: #2c3e50; /* Darker text for good contrast */
+        font-family: 'Poppins', sans-serif; /* Modern font */
+        font-size: 14px; /* Optimal size for readability */
+        padding: 10px 15px; /* Adequate padding for touch-friendly design */
+        border-radius: 8px; /* Rounded button-like links */
+        transition: background-color 0.3s, color 0.3s ease;
+        text-align: center;
+    }
 
     main {
         padding: 10px 10px; /* Reduced padding */
