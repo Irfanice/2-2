@@ -1,4 +1,4 @@
-import { toggleVisibility } from './app.js';
+import { toggleVisibility } from './App.js';
 
 const toggleButton = document.getElementById('toggleButton');
 const message = document.getElementById('message');
