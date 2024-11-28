@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SurahList from "./SurahList";  // Your home page or SurahList component
+import About from "./About"; // Import the About page component
+import Header from "./Header"; // Import Header component to pass setIsMenuOpen
 
-function App() {
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage menu state here
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Route for SurahList/Home page */}
+        <Route 
+          path="/" 
+          element={<>
+            <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} /> {/* Header with menu */}
+            <SurahList isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          </>} 
+        />
+
+        {/* Route for the About page */}
+        <Route 
+          path="/about" 
+          element={<About isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} 
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
