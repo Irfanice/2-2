@@ -1,2 +1,0 @@
-(()=>{"use strict";const e=document.getElementById("toggleButton"),t=document.getElementById("message");e.addEventListener("click",(()=>{var e;(e=t).classList.contains("hidden")?e.classList.remove("hidden"):e.classList.add("hidden")}))})();
-//# sourceMappingURL=main.7bfbfc32.js.map
