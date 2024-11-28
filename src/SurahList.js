@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './styles.css';  // Make sure this is correctly imported
 import Header from './Header'; // Import the Header component
 import Footer from './Footer'; // Import the Footer component
+import { Link } from "react-router-dom";
 
 const SurahList = () => {
 const surahs = 
@@ -213,7 +214,7 @@ return (
         <div className={`surahlist ${isMenuOpen ? 'show' : ''}`}>
           <ul>
             <li><a href="/2-2">Home</a></li>
-            <li><a href="./about">About</a></li>
+            <li><Link to="/about">About</Link></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
