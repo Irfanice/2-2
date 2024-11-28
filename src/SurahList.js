@@ -125,125 +125,103 @@ const surahs =
 ];
 
 const [surahList, setSurahList] = useState(surahs);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [audioLoadingState, setAudioLoadingState] = useState({});
-  const [currentSurahIndex, setCurrentSurahIndex] = useState(0);
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);  // Track user interaction
-  const audioRefs = useRef([]);
+const [searchQuery, setSearchQuery] = useState("");
+const [isMenuOpen, setIsMenuOpen] = useState(false);
+const [audioLoadingState, setAudioLoadingState] = useState({});
+const [currentSurahIndex, setCurrentSurahIndex] = useState(0);
+const [hasUserInteracted, setHasUserInteracted] = useState(false);
+const audioRefs = useRef([]);
 
-  const handleSearchChange = (e) => setSearchQuery(e.target.value);
+const handleSearchChange = (e) => setSearchQuery(e.target.value);
 
-  const handleAudioLoad = (number) => {
-    console.log(`Audio for Surah ${number} loaded successfully.`);
-    setAudioLoadingState((prevState) => ({
-      ...prevState,
-      [number]: 'loaded',
-    }));
+const handleAudioLoad = (number) => {
+  setAudioLoadingState((prevState) => ({
+    ...prevState,
+    [number]: "loaded",
+  }));
+};
+
+const handleAudioError = (number) => {
+  setAudioLoadingState((prevState) => ({
+    ...prevState,
+    [number]: "error",
+  }));
+};
+
+const handleAudioEnd = () => {
+  const nextSurahIndex = (currentSurahIndex + 1) % surahList.length;
+  setCurrentSurahIndex(nextSurahIndex);
+
+  if (audioRefs.current[nextSurahIndex]) {
+    audioRefs.current[nextSurahIndex].currentTime = 0;
+    audioRefs.current[nextSurahIndex].play();
+  }
+};
+
+useEffect(() => {
+  const handleUserInteraction = () => {
+    setHasUserInteracted(true);
   };
 
-  const handleAudioError = (number) => {
-    console.log(`Error loading audio for Surah ${number}.`);
-    setAudioLoadingState((prevState) => ({
-      ...prevState,
-      [number]: 'error',
-    }));
+  window.addEventListener("click", handleUserInteraction);
+  window.addEventListener("keydown", handleUserInteraction);
+
+  return () => {
+    window.removeEventListener("click", handleUserInteraction);
+    window.removeEventListener("keydown", handleUserInteraction);
   };
+}, []);
 
-  const handleAudioEnd = () => {
-    const nextSurahIndex = (currentSurahIndex + 1) % surahList.length;
-    setCurrentSurahIndex(nextSurahIndex);  // Move to the next surah
+useEffect(() => {
+  if (hasUserInteracted && audioRefs.current[currentSurahIndex]) {
+    audioRefs.current[currentSurahIndex].currentTime = 0;
+    audioRefs.current[currentSurahIndex].play();
+  }
+}, [currentSurahIndex, hasUserInteracted]);
 
-    if (audioRefs.current[nextSurahIndex]) {
-      audioRefs.current[nextSurahIndex].currentTime = 0; // Reset the time to 0
-      audioRefs.current[nextSurahIndex].play(); // Play the next surah
-    }
-  };
+const filteredSurahs = surahList.filter((surah) =>
+  surah.name.toLowerCase().includes(searchQuery.toLowerCase())
+);
 
-  useEffect(() => {
-    const handleUserInteraction = () => {
-      setHasUserInteracted(true);
-    };
-
-    // Listen for user clicks or key presses to enable autoplay
-    window.addEventListener('click', handleUserInteraction);
-    window.addEventListener('keydown', handleUserInteraction);
-
-    return () => {
-      window.removeEventListener('click', handleUserInteraction);
-      window.removeEventListener('keydown', handleUserInteraction);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (hasUserInteracted && audioRefs.current[currentSurahIndex]) {
-      console.log(`Playing Surah ${surahList[currentSurahIndex].name}`);
-      audioRefs.current[currentSurahIndex].currentTime = 0;  // Reset to 0:00
-      audioRefs.current[currentSurahIndex].play();  // Play the next audio
-    }
-  }, [currentSurahIndex, hasUserInteracted]);
-
-  const filteredSurahs = surahList.filter((surah) =>
-    surah.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  return (
-    <div>
-      <header>
-        <div className="header-container">
-          <div className="left">
-            <h1>குர்ஆன்</h1>
-          </div>
-          <div className="center">
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search Surahs..."
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-          </div>
-          <div className="right">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="menu-button">Menu</button>
-          </div>
-        </div>
-        {isMenuOpen && (
-          <div className={`surahlist ${isMenuOpen ? 'show' : ''}`}>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-        )}
-      </header>
-
-      <main>
-        <ul>
-          {filteredSurahs.map((surah, index) => (
-            <li key={surah.number} className="surah-item">
-              <h3>{surah.name} ({surah.number})</h3>
-              <audio
-                ref={(el) => audioRefs.current[index] = el}
-                controls
-                onCanPlay={() => handleAudioLoad(surah.number)}
-                onError={() => handleAudioError(surah.number)}
-                onEnded={handleAudioEnd}
-              >
-                <source src={surah.audio || '/default-audio.mp3'} type="audio/mp3" />
-                {audioLoadingState[surah.number] === 'loaded' && <p>Audio Loaded</p>}
-                {audioLoadingState[surah.number] === 'error' && <p>Error loading audio.</p>}
-                {!audioLoadingState[surah.number] && <p>Loading audio...</p>}
-                Your browser does not support the audio element.
-              </audio>
-            </li>
-          ))}
-        </ul>
-      </main>
-
-      <Footer />
-    </div>
-  );
+return (
+  <div>
+    {/* Use the Header component */}
+    <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+    <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+    <main>
+      <ul>
+        {filteredSurahs.map((surah, index) => (
+          <li key={surah.number} className="surah-item">
+            <h3>
+              {surah.name} ({surah.number})
+            </h3>
+            <audio
+              ref={(el) => (audioRefs.current[index] = el)}
+              controls
+              onCanPlay={() => handleAudioLoad(surah.number)}
+              onError={() => handleAudioError(surah.number)}
+              onEnded={handleAudioEnd}
+            >
+              <source
+                src={surah.audio || "/default-audio.mp3"}
+                type="audio/mp3"
+              />
+              {audioLoadingState[surah.number] === "loaded" && (
+                <p>Audio Loaded</p>
+              )}
+              {audioLoadingState[surah.number] === "error" && (
+                <p>Error loading audio.</p>
+              )}
+              {!audioLoadingState[surah.number] && <p>Loading audio...</p>}
+              Your browser does not support the audio element.
+            </audio>
+          </li>
+        ))}
+      </ul>
+    </main>
+    <Footer />
+  </div>
+);
 };
 
 export default SurahList;
