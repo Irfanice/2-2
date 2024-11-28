@@ -63,7 +63,7 @@ const Footer = () => {
   // Set a random verse when the component is mounted
   useEffect(() => {
     getRandomVerse();
-  }, []);
+  }, [getRandomVerse]); // If you really want to add this dependency
 
   return (
     <footer>
