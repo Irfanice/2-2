@@ -12,6 +12,13 @@ main {
     position: relative; /* Ensures backdrop-filter works */
 }
 
+/* Remove bullet points from Surah list in main content */
+main ul {
+    list-style-type: none; /* Removes the bullet points */
+    padding-left: 0; /* Removes any left padding */
+    margin: 0; /* Removes any margin */
+}
+
 /* Style for the search input */
 .search-input {
     width: 100%;
@@ -36,10 +43,10 @@ main {
 
 /* Style for each Surah item */
 .surah-item {
-    height: 100px;
+    height: 110px;
     margin-bottom: 25px;
     padding: 0 18px;
-    font-size: 18px; /* Increased font size for better readability */
+    font-size: 17px; /* Increased font size for better readability */
     color: #333; /* Dark text for better contrast */
     line-height: 1.8; /* More space between lines for clarity */
     background-color: #fff; /* White background for each Surah item */
