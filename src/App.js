@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom"; // Use HashRouter instead of BrowserRouter
 import SurahList from "./SurahList"; // Your home page or SurahList component
 import About from "./About"; // Import the About page component
 import Contact from "./Contact"; // Import the Contact page component
@@ -10,7 +10,8 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Manage menu state here
 
   return (
-    <Router basename="/2-2">
+    <Router>
+      {/* Wrap the entire app in HashRouter */}
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} /> {/* Header with menu */}
       <Routes>
         {/* Route for SurahList/Home page */}
