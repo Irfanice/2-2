@@ -6,8 +6,8 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
     <header>
       <div className="header-container">
         <div className="left">
-        <h5>குர்ஆன்</h5>
-        <h5>தமிழில்</h5>
+          <h5>குர்ஆன்</h5>
+          <h5>தமிழில்</h5>
         </div>
         <div className="center">
           <input
@@ -29,9 +29,9 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
       {isMenuOpen && (
         <div className={`surahlist ${isMenuOpen ? 'show' : ''}`}>
           <ul>
-            <li><a href="/2-2">Home</a></li>
-            <li><a href="/2-2/about">About</a></li>
-            <li><a href="/2-2/contact">Contact</a></li>
+            <li><a href="#/">Home</a></li> {/* Add # for HashRouter */}
+            <li><a href="#/about">About</a></li> {/* Add # for HashRouter */}
+            <li><a href="#/contact">Contact</a></li> {/* Add # for HashRouter */}
           </ul>
         </div>
       )}
