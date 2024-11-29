@@ -1,0 +1,205 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #f2f2f2;
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+/* Contact Page Container */
+.contact-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #f0f0f0;
+    padding-bottom: 90px; /* Make room for the quote section */
+}
+
+/* Intro Section */
+.intro-section {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.7); /* Glassy effect */
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+}
+
+.intro-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.intro-section p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Contact Form Container */
+.contact-container {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9); /* Light transparent background for glass effect */
+    backdrop-filter: blur(12px); /* Glass blur effect */
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background-color: #ffffff;
+    border-color: #007bff;
+    outline: none;
+}
+
+.contact-form button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+.contact-form button:active {
+    background-color: #004085;
+}
+
+/* Quote Section */
+.quote-section {
+    height: 200px; /* You can adjust the height here */
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 1; /* Ensure it is above other content */
+}
+
+/* Add the background image */
+.quote-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/public/your-background-image.jpg') no-repeat center center/cover;
+    filter: blur(3px); /* This will blur the background image */
+    z-index: -1; /* Ensures that the blurred image stays behind the text */
+}
+
+.quote-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin: auto;
+}
+
+.quote-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-page {
+        padding: 15px;
+        padding-bottom: 90px; /* Make room for the quote section */
+    }
+
+    .intro-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .contact-container h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+    }
+
+    .contact-form button {
+        font-size: 1rem;
+    }
+
+    .quote-section {
+        height: 150px;
+    }
+
+    .quote-section p {
+        font-size: 20px;
+    }
+
+    .intro-section p {
+        font-size: 0.9rem;
+    }
+}

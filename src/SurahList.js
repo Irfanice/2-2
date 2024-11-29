@@ -215,7 +215,7 @@ return (
           <ul>
             <li><a href="/2-2">Home</a></li>
             <li><Link to="/about">About</Link></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
       )}
