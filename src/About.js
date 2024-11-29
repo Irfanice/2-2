@@ -52,14 +52,14 @@ const About = () => {
       },
 
       aboutMe: { 
-        title: isEnglish ? 'About Me' : 'என்னைப் பற்றி',
+        title: isEnglish ? 'Quran in Text format' : 'உரை வடிவில் குர்ஆன்',
         description: isEnglish
-          ? 'I am Mohammed Irfan, and my profession is Software Testing. Then, how did I build this website? Yes, you guessed right! — with help from ChatGPT'
-          : 'நான் முகம்மத் இர்ஃபான், நான் ஒரு மென்பொருள் சோதனையாளர். பிறகு,  இந்த வலைத்தளத்தை நான் எப்படித் உருவாக்கினேன்? நீங்கள் யோசித்தது சரி தான்! - (ChatGPT) உதவியுடன்',
+          ? 'Click the above image to get the pdf download'
+          : 'PDF பதிவிறக்கத்தை செய்ய மேலுள்ள படத்தை கிளிக் செய்யவும்',
       },
 
     quote: isEnglish
-      ? '"This is the Book! There is no doubt about it1—a guide for those mindful ˹of Allah˺" - Quran 02 : 02'
+      ? '"This is the Book! There is no doubt about it, a guidance for those conscious of Allah." - Quran 02 : 02'
       : '"இது, (அல்லாஹ்வின்) திருவேதமாகும்; இதில் எத்தகைய சந்தேகமும் இல்லை; பயபக்தியுடையோருக்கு (இது) நேர்வழிகாட்டியாகும்." - குர்ஆன் 02 : 02 ',
   };
 
@@ -109,22 +109,27 @@ const About = () => {
             </div>
           </section>
 
-{/* About Me */}
+{/* About Me Section */}
 <section className="about-me">
   <h2>{content.aboutMe.title}</h2>
+  
+  {/* Use the correct image path and make it a clickable link to download the PDF from Google Drive */}
   <div className="about-me-image">
-    {/* Use the correct image path */}
-    <img
-      src={`${process.env.PUBLIC_URL}/about-me.jpg`} // Correct image path here
-      alt="About Me"
-    />
+    <a href="https://drive.google.com/uc?export=download&id=19EtqJLXkOa4vmhyMhm7BpglYY1vwes09" target="_blank" rel="noopener noreferrer">
+      <img
+        src={`${process.env.PUBLIC_URL}/about-me.jpg`} // Correct image path
+        alt="About Me"
+      />
+    </a>
   </div>
+  
   <p>{content.aboutMe.description}</p>
 </section>
 
+
           {/* Quote */}
-          <section className="quote-section">
-            <blockquote>{content.quote}</blockquote>
+          <section className="quote-section-aboutPage">
+            <p>{content.quote}</p>
           </section>
         </div>
       </main>
