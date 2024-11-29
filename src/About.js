@@ -113,15 +113,21 @@ const About = () => {
 <section className="about-me">
   <h2>{content.aboutMe.title}</h2>
   
-  {/* Use the correct image path and make it a clickable link to download the PDF from Google Drive */}
-  <div className="about-me-image">
-    <a href="https://drive.google.com/uc?export=download&id=19EtqJLXkOa4vmhyMhm7BpglYY1vwes09" target="_blank" rel="noopener noreferrer">
-      <img
-        src={`${process.env.PUBLIC_URL}/about-me.jpg`} // Correct image path
-        alt="About Me"
-      />
-    </a>
-  </div>
+{/* Use the correct image path and make it a clickable link to download the PDF from Google Drive */}
+<div className="about-me-image">
+  <a
+    href="https://drive.google.com/uc?export=download&id=19EtqJLXkOa4vmhyMhm7BpglYY1vwes09"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src={`${process.env.PUBLIC_URL}/about-me.jpg`} // Correct image path
+      alt="About Me"
+      className="clickable-image"
+    />
+  </a>
+</div>
+
   
   <p>{content.aboutMe.description}</p>
 </section>

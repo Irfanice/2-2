@@ -171,7 +171,7 @@
     background-size: cover; /* Ensure the background image covers the section */
     background-position: center; /* Center the background image */
     background-attachment: fixed; /* Keep the background fixed while scrolling */
-    padding: 40px; /* Add padding around the content */
+    padding: 20px; /* Add padding around the content */
     border-radius: 12px; /* Optional rounded corners */
     backdrop-filter: blur(100px); /* Apply blur for a glassy look */
     -webkit-backdrop-filter: blur(100px); /* Safari fix for backdrop-filter */
@@ -187,18 +187,32 @@
     background: rgba(0, 0, 0, 0.3); /* Darken the background slightly for better text contrast */
     border-radius: 12px;
     z-index: -1; /* Ensure the overlay is behind the content */
-  }
+    margin: auto;
+}
   
-  
-  
-  .about-me img {
+/* About Me Image */
+.about-me img {
     width: 140px;
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+  
+  /* Hover effect for the image */
+  .about-me img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  }
+  
+  /* Click animation */
+  .about-me img:active {
+    transform: scale(0.95); /* Slightly shrink on click */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  }
+  
   
   .about-me p {
     color: #fffefe;
