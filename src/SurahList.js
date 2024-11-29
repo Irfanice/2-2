@@ -129,7 +129,20 @@ const [audioLoadingState, setAudioLoadingState] = useState({});
 const audioRefs = useRef([]);
 const [currentPlayingIndex, setCurrentPlayingIndex] = useState(null); // Track the currently playing index
 
-const handleSearchChange = (e) => setSearchQuery(e.target.value);
+const handleSearchChange = (e) => {
+  const query = e.target.value;
+  setSearchQuery(query);
+
+  // Check if the query is a number
+  const id = parseInt(query, 10);
+  if (!isNaN(id)) {
+    const surahIndex = surahs.findIndex((surah) => surah.number === id);
+    if (surahIndex !== -1) {
+      // Automatically play the corresponding MP3
+      playAudioByIndex(surahIndex);
+    }
+  }
+};
 
 const handleAudioLoad = (number) => {
   setAudioLoadingState((prevState) => ({
@@ -167,6 +180,15 @@ const handleAudioEnd = () => {
     if (nextAudio) {
       nextAudio.play();
     }
+  }
+};
+
+const playAudioByIndex = (index) => {
+  // Play audio by index
+  const audio = audioRefs.current[index];
+  if (audio) {
+    audio.play();
+    setCurrentPlayingIndex(index);
   }
 };
 
