@@ -81,8 +81,8 @@ const Contact = () => {
         </div>
       </div>
       
-      {/* Optionally include Footer if you want it */}
-      {/* <Footer /> */}
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
