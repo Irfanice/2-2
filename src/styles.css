@@ -329,7 +329,7 @@ header {
     position: relative; /* Positioned relative to header */
     z-index: 100; /* Ensure toggle appears correctly above background */
     width: 100%;
-    margin: 40px 20px;
+    margin: 20px 20px;
   }
 
 /* Glassy Gray Button */

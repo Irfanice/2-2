@@ -1,14 +1,16 @@
-import React from 'react';
-import './styles.css';
+import React from "react";
+import "./styles.css";
 
 const Header = ({ isMenuOpen, setIsMenuOpen }) => {
   return (
     <header>
       <div className="header-container">
-        <div className="left">
-        <a href="/2-2"><h5>குர்ஆன்</h5></a>
-        <a href="/2-2"><h5>தமிழில்</h5></a>
-        </div>
+        <a href="/2-2">
+          <div className="left">
+            <h5>குர்ஆன்</h5>
+            <h5>தமிழில்</h5>
+          </div>
+        </a>
         <div className="center">
           <input
             type="text"
@@ -18,8 +20,8 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
           />
         </div>
         <div className="right">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="menu-button"
           >
             Menu
@@ -27,11 +29,20 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className={`surahlist ${isMenuOpen ? 'show' : ''}`}>
+        <div className={`surahlist ${isMenuOpen ? "show" : ""}`}>
           <ul>
-            <li><a href="#/">Home</a></li> {/* Add # for HashRouter */}
-            <li><a href="#/about">About</a></li> {/* Add # for HashRouter */}
-            <li><a href="#/contact">Contact</a></li> {/* Add # for HashRouter */}
+            <li>
+              <a href="#/">Home</a>
+            </li>{" "}
+            {/* Add # for HashRouter */}
+            <li>
+              <a href="#/about">About</a>
+            </li>{" "}
+            {/* Add # for HashRouter */}
+            <li>
+              <a href="#/contact">Contact</a>
+            </li>{" "}
+            {/* Add # for HashRouter */}
           </ul>
         </div>
       )}

@@ -878,10 +878,12 @@ const SurahList = () => {
     <div>
       <header>
         <div className="header-container">
-          <div className="left">
-          <a href="/2-2"><h5>குர்ஆன்</h5></a>
-          <a href="/2-2"><h5>தமிழில்</h5></a>
-          </div>
+          <a href="/2-2">
+            <div className="left">
+              <h5>குர்ஆன்</h5>
+              <h5>தமிழில்</h5>
+            </div>
+          </a>
           <div className="center">
             <input
               type="text"
