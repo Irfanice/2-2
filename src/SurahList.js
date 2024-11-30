@@ -879,8 +879,8 @@ const SurahList = () => {
       <header>
         <div className="header-container">
           <div className="left">
-            <h5>குர்ஆன்</h5>
-            <h5>தமிழில்</h5>
+          <a href="/2-2"><h5>குர்ஆன்</h5></a>
+          <a href="/2-2"><h5>தமிழில்</h5></a>
           </div>
           <div className="center">
             <input
@@ -921,7 +921,7 @@ const SurahList = () => {
 
       <main>
         {/* Language Toggle Switch */}
-        <div className="toggle-container">
+        <div className="toggle-container-home">
           <button onClick={toggleLanguage} className="toggle-button">
             {isTamil ? "Switch to English" : "தமிழுக்கு மாற்று"}
           </button>

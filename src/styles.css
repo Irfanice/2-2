@@ -320,15 +320,17 @@ header {
     margin-bottom: 0; /* Remove bottom margin */
 }
 
-/* Toggle Container without Background */
-.toggle-container {
+  /* Toggle Container for Centering */
+  .toggle-container-home {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center horizontally */
     align-items: center;
-    margin: 20px 0;
-    padding: 15px;
-    /* No background here, just clean space */
-}
+    padding: 10px 0; /* Space between header and toggle */
+    position: relative; /* Positioned relative to header */
+    z-index: 100; /* Ensure toggle appears correctly above background */
+    width: 100%;
+    margin: 40px 20px;
+  }
 
 /* Glassy Gray Button */
 .toggle-button {
