@@ -191,12 +191,11 @@ header {
     align-items: center; /* Vertically center content */
     height: 80px; /* Define fixed height */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
 }
 
-.header-container > .left {
-    flex: 1; /* This ensures it takes all available space to the left */
-    text-align: left; /* Align text to the left */
-    margin-left: 20px;
+.header-container {
+    padding-left: 25px;
 }
 
 .header-container > .right {
@@ -386,10 +385,11 @@ header {
     margin-right: 20px;
 }
 
-    .header-container > .left {
+    .header-container {
         flex: 1; /* This ensures it takes all available space to the left */
         text-align: left; /* Align text to the left */
         margin-left: auto;
+        padding-left: 0.2px;
         font-size: 16px;
     }
     
