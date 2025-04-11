@@ -54,8 +54,8 @@ const About = () => {
       aboutMe: { 
         title: isEnglish ? 'Quran in Text format' : 'உரை வடிவில் குர்ஆன்',
         description: isEnglish
-          ? 'Click the above image to get the pdf download'
-          : 'PDF பதிவிறக்கத்தை செய்ய மேலுள்ள படத்தை கிளிக் செய்யவும்',
+          ? 'Click above button to get the pdf download'
+          : 'PDF பதிவிறக்கத்தை செய்ய மேலுள்ள button கிளிக் செய்யவும்',
       },
 
     quote: isEnglish
@@ -121,14 +121,12 @@ const About = () => {
     rel="noopener noreferrer"
   >
     <button className="quran-button">
-      📘 Tamil Quran
+      Tamil Quran
     </button>
   </a>
 </div>
 
-
-  
-  <p>{content.aboutMe.description}</p>
+<p>{content.aboutMe.description}</p>
 </section>
 
 

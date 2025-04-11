@@ -159,70 +159,67 @@
     font-weight: bold;
   }
   
-  /* Profile Section */
-  .about-me {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative; /* To ensure that the background image is applied properly */
-    background-image: url('../public/pro-bg.jpg'); /* Relative path to the image */
-    background-size: cover; /* Ensure the background image covers the section */
-    background-position: center; /* Center the background image */
-    background-attachment: fixed; /* Keep the background fixed while scrolling */
-    padding: 20px; /* Add padding around the content */
-    border-radius: 12px; /* Optional rounded corners */
-    backdrop-filter: blur(100px); /* Apply blur for a glassy look */
-    -webkit-backdrop-filter: blur(100px); /* Safari fix for backdrop-filter */
-  }
-  
-  .about-me::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Darken the background slightly for better text contrast */
-    border-radius: 12px;
-    z-index: -1; /* Ensure the overlay is behind the content */
-    margin: auto;
+/* Apple-Styled Profile Section with Old Layout */
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
-  
-/* About Me Image */
-.about-me img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Hover effect for the image */
-  .about-me img:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-  }
-  
-  /* Click animation */
-  .about-me img:active {
-    transform: scale(0.95); /* Slightly shrink on click */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-  }
-  
-  
-  .about-me p {
-    color: #fffefe;
-  }
-  
-  .about-me h2 {
-    font-size: 22px;
-    color: #eff3f8;
-    margin-top: 10px;
-  }
+
+/* Heading */
+.about-me h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1c1c1e;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+/* Paragraph */
+.about-me p {
+  font-size: 16px;
+  color: #5f5f60;
+  line-height: 4;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+/* Elegant Rectangular Button - Neutral Colors */
+.quran-button {
+  display: inline-block;
+  padding: 18px 36px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1c1c1e; /* Deep black-gray tone */
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover */
+.quran-button:hover {
+  background-color: #2c2c2e; /* Slightly lighter gray */
+  transform: translateY(-3px);
+}
+
+/* Click */
+.quran-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
   
   /* Background Image Section */
   .background-image {
