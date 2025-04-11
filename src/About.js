@@ -120,13 +120,12 @@ const About = () => {
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img
-      src={`${process.env.PUBLIC_URL}/about-me.jpg`} // Correct image path
-      alt="About Me"
-      className="clickable-image"
-    />
+    <button className="quran-button">
+      📘 Tamil Quran
+    </button>
   </a>
 </div>
+
 
   
   <p>{content.aboutMe.description}</p>
